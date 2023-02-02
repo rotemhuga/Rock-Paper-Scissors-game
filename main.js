@@ -16,6 +16,12 @@ var img = document.getElementById("img01");
 btn.onclick = function () {
     modal.style.display = "block";
     img.src = "./assets/image-rules.svg";
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
 };
 // Get the <span> element that closes the modal
 var span = document.getElementById("close");
@@ -23,29 +29,49 @@ var span = document.getElementById("close");
 span.onclick = function () {
     modal.style.display = "none";
 };
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-};
+//Choosen 
 var threeShpes = document.getElementById("bg-triangle");
+var randomString;
 var buttonSubmit = function (event) {
     event.preventDefault();
     console.log(event);
-    // console.log(event.srcElement.classList.value)
     var valueClick = event.srcElement.classList.value;
     console.log(valueClick);
     threeShpes.style.display = "none";
-    if (valueClick === "1") {
-        var leftSide = document.createElement('div');
-        var paper = document.createElement('div');
-        paper.setAttribute("id", 'paper-click');
-        leftSide.appendChild(paper);
-        paper.style.display = "block";
-        // alert("1 is choosen")
+    var choosenContainer = document.getElementById("choosen-container");
+    choosenContainer.style.display = "flex";
+    console.log(choosenContainer);
+    var colorDiv = event.target.childNodes[1].classList[0];
+    var choosenForm = document.getElementById('choosen-form');
+    choosenForm === null || choosenForm === void 0 ? void 0 : choosenForm.appendChild(event.target.elements[0]);
+    choosenForm === null || choosenForm === void 0 ? void 0 : choosenForm.setAttribute("class", colorDiv);
+    //house:        
+    var random = Math.floor((Math.random() * 3) + 1);
+    randomString = random === 1 ? "paper".concat(random) : random === 2 ? "scissors".concat(random) : "rock".concat(random);
+    console.log(randomString);
+    // const houseChoose= document.getElementById('house-choose');
+    var allClasses = document.querySelectorAll('.form-div');
+    var arrClasses = Array.from(allClasses);
+    console.log(arrClasses[0].classList[0]);
+    var found = arrClasses === null || arrClasses === void 0 ? void 0 : arrClasses.find(function (cla) {
+        console.log(cla.classList[0]);
+        return cla.classList[0] === randomString;
+    });
+    console.log(found);
+    found.setAttribute("id", "all-found");
+    // houseChoose?.setAttribute("class", `${random}`)
+    var rightSide = document.getElementById('right-side');
+    var divSide = document.getElementById('div-right');
+    console.log(randomString + ' form-div');
+    console.log(valueClick);
+    var test = event.target;
+    console.log(test);
+    if (randomString + ' form-div' !== valueClick) {
+        rightSide === null || rightSide === void 0 ? void 0 : rightSide.appendChild(found);
     }
     else {
-        alert("you didnt choose anything");
+        // divSide?.appendChild(event.target.elements[0])
+        divSide.innerHTML = "<div>".concat(test, "</div>");
+        document.body.appendChild(divSide);
     }
 };

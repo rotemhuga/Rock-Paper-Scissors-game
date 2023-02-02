@@ -96,8 +96,10 @@ body {
     box-shadow: inset 0 -6px rgba(0, 0, 0, 0.2);
 }
 
-.paper-click {
+.paper1 {
     background-color: hsl(230, 89%, 62%);
+    /* width: 100px;
+    height: 100px; */
     /* position: absolute;
     top: 0;
     transform: translate(-50%, -50%); */
@@ -119,11 +121,11 @@ body {
     position: absolute;
     bottom: 0;
     right: 50%;
-    transform: translate(-50%, 140%);
+    transform: translate(50%, 50%);
     box-shadow: inset 0 -6px rgba(0, 0, 0, 0.2);
 }
 
-#shape-div {
+.shape-div {
     width: 120px;
     height: 120px;
     position: relative;
@@ -227,3 +229,53 @@ button {
     justify-content: center;  
 }
 
+#choosen-container {
+    display: none;   
+    top: 30%;        
+    position: relative;
+    justify-content: center;
+}
+
+#left-side {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 300px;
+    align-items: center;
+}
+
+.you-picked-text {
+    font-size: 20px;
+}
+
+.house-picked-text {
+    font-size: 20px;
+}
+
+#right-side {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 300px;
+    align-items: center;
+}
+
+#choosen-form {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    position: static;
+    transform: translate(0, -30%);
+}
+#all-found {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    position: static;
+    transform: translate(0, -30%);
+}
+
+.you-picked-text {
+    width: 100px;
+    height: 100px;
+}

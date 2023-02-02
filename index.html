@@ -38,30 +38,44 @@
       <img src="./assets/bg-triangle.svg" alt="bg-triangle">
       <div id="three-options">
         <!-- <button class="paper-button"> -->
-      <form id="paper-id" class="1" onsubmit="buttonSubmit(event)">
-          <div id="color-div" class="paper-all 1">
-            <button id="shape-div" class="paper button">
+      <form id="paper-id" class="paper1 form-div" onsubmit="buttonSubmit(event)">
+          <div id="color-div" class="paper-all 1" >
+            <button class="paper button shape-div" type="submit">
               <img src="./assets/icon-paper.svg" alt="paper-image" id="img" class="paper-img">
             </button>
+            </div> 
       </form>
-          </div>
-      <form id="scissors-id" class="2" onsubmit="buttonSubmit(event)">    
+      <form id="scissors-id" class="scissors2 form-div" onsubmit="buttonSubmit(event)">    
         <div id="color-div" class="scissors-all 2">
-          <button id="shape-div" class="scissors button">
+          <button class="scissors button shape-div" type="submit">
             <img src="./assets/icon-scissors.svg" alt="scissors-image" id="img" class="scissors-img">
           </button>
+          </div>
       </form>
        
-      <form id="rock-id" class="3" onsubmit="buttonSubmit(event)">      
+      <form id="rock-id" class="rock3 form-div" onsubmit="buttonSubmit(event)">      
         <div id="color-div" class="rock-all 3" >
-            <button id="shape-div" class="rock button" on>
+            <button class="rock button shape-div" type="submit">
               <img src="./assets/icon-rock.svg" alt="rock-image" id="img" class="rock-img">
             </button>
+        </div>
       </form>
        </div>
         </div>
-      </div>
+  <div id="choosen-container">
+    <div id="left-side"> 
+      <div class="you-picked-text">YOU PICKED</div>
+      <form id="choosen-form">
+      </form>
+    </div>
+    <div id="right-side">
+      <div class="house-picked-text">THE HOUSE PICKED</div>
+<div id="div-right"></div>
+    </div>
   </div>
+
+
+
     <button id="myBtn" class="rules-button">R U L E S</button>
     <div id="myModal" class="modal">
       <div class="modal-content">
@@ -70,7 +84,6 @@
         <span id="close"><img src="./assets/icon-close.svg" alt="close icon"></span></div>
         <div id="rules-img"><img id="img01"></div>
     </div>
-  </div>
   
     <!-- <div class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
