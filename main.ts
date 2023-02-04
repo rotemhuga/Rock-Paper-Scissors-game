@@ -38,24 +38,26 @@ let threeShpes =  document.getElementById("bg-triangle",) as HTMLDivElement;
 let randomString;
 const buttonSubmit = (event) => {
     event.preventDefault()
-    console.log(event)
+    // console.log(event)
     let valueClick = event.srcElement.classList.value
-    console.log(valueClick)
+    // console.log(valueClick)
     threeShpes.style.display = "none";        
     const choosenContainer:any= document.getElementById("choosen-container");
     choosenContainer.style.display= "flex";
-    console.log(choosenContainer)
+    // console.log(choosenContainer)
     const colorDiv= event.target.childNodes[1].classList[0];
+    console.log(colorDiv)
     const choosenForm= document.getElementById('choosen-form');
     choosenForm?.appendChild(event.target.elements[0]);
     choosenForm?.setAttribute("class", colorDiv )
     //house:        
     const random = Math.floor((Math.random() * 3) + 1);
     randomString= random === 1 ? `paper${random}` : random === 2 ? `scissors${random}` : `rock${random}`;
-    console.log(randomString)
+    // console.log(randomString)
     // const houseChoose= document.getElementById('house-choose');
     const allClasses: any = document.querySelectorAll('.form-div')
     const arrClasses:any = Array.from(allClasses)
+    console.log(arrClasses)
     console.log(arrClasses[0].classList[0]);
     const found: any = arrClasses?.find((cla: any) => {
         console.log(cla);
@@ -152,7 +154,7 @@ function game(valueClick) {
     } else if (returnValue === "you lose") {
     score -= 1;  
     }
-    console.log(score)
+    // console.log(score)
     
 }
 

@@ -27,24 +27,26 @@ var threeShpes = document.getElementById("bg-triangle");
 var randomString;
 var buttonSubmit = function (event) {
     event.preventDefault();
-    console.log(event);
+    // console.log(event)
     var valueClick = event.srcElement.classList.value;
-    console.log(valueClick);
+    // console.log(valueClick)
     threeShpes.style.display = "none";
     var choosenContainer = document.getElementById("choosen-container");
     choosenContainer.style.display = "flex";
-    console.log(choosenContainer);
+    // console.log(choosenContainer)
     var colorDiv = event.target.childNodes[1].classList[0];
+    console.log(colorDiv);
     var choosenForm = document.getElementById('choosen-form');
     choosenForm === null || choosenForm === void 0 ? void 0 : choosenForm.appendChild(event.target.elements[0]);
     choosenForm === null || choosenForm === void 0 ? void 0 : choosenForm.setAttribute("class", colorDiv);
     //house:        
     var random = Math.floor((Math.random() * 3) + 1);
     randomString = random === 1 ? "paper".concat(random) : random === 2 ? "scissors".concat(random) : "rock".concat(random);
-    console.log(randomString);
+    // console.log(randomString)
     // const houseChoose= document.getElementById('house-choose');
     var allClasses = document.querySelectorAll('.form-div');
     var arrClasses = Array.from(allClasses);
+    console.log(arrClasses);
     console.log(arrClasses[0].classList[0]);
     var found = arrClasses === null || arrClasses === void 0 ? void 0 : arrClasses.find(function (cla) {
         console.log(cla);
@@ -143,7 +145,7 @@ var buttonSubmit = function (event) {
     else if (returnValue === "you lose") {
         score -= 1;
     }
-    console.log(score);
+    // console.log(score)
 };
 //option 2
 // let middleSide = document.getElementById('middle-side') 
