@@ -252,6 +252,30 @@ button {
     font-size: 20px;
 }
 
+#middle-side {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 220px;
+    gap: 10px;
+}
+
+#result-status {
+    font-size: 40px;
+    
+}
+
+#play-again {
+    background-color: white;
+    width: 135px;
+    height: 30px;
+    border-radius: 5px;
+    color: hsl(349, 70%, 56%);
+    font-size: 10px;
+    font-weight: 700;
+}
+
 #right-side {
     display: flex;
     flex-direction: column;

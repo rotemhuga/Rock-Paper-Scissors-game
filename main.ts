@@ -1,27 +1,17 @@
-// 1. לתפוס את 3 האלמנטים על ידי click event (תופסת את class/id - בשם choosen
-// בדיוק אחרי הלחיצה:
-// 1. להסתיר את הפופאפ אחרי הלחיצה 
-// 2. להציג את הפופאפ החדש עם האחד שנבחר (choosen
-// 3. למתחרה יבחר מספר רנדומלי 1/2/3
-// 4. להוסיף לפופאפ החדש את הנבחר של המתחרה
-// 5. להוסיף את כל כללי המשחק
 
 // Function Rules Modal
 // Get the button
 let btn = document.getElementById(
     "myBtn",
 ) as HTMLButtonElement;
-
 // Get the modal
 let modal = document.getElementById(
     "myModal",
 ) as HTMLDivElement;
-
 // Get the image
 let img = document.getElementById(
     "img01",
 ) as HTMLImageElement;
-
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
   modal.style.display = "block";
@@ -33,19 +23,17 @@ window.onclick = function(event) {
   }
 }
 }
-
 // Get the <span> element that closes the modal
 let span = document.getElementById(
     "close"
 ) as HTMLImageElement;
-
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
 }
 
 
-//Choosen 
+//Choosen shape
 let threeShpes =  document.getElementById("bg-triangle",) as HTMLDivElement;
 let randomString;
 const buttonSubmit = (event) => {
@@ -70,7 +58,7 @@ const buttonSubmit = (event) => {
     const arrClasses:any = Array.from(allClasses)
     console.log(arrClasses[0].classList[0]);
     const found: any = arrClasses?.find((cla: any) => {
-        console.log(cla.classList[0]);
+        console.log(cla);
         return cla.classList[0] === randomString
     })
     console.log(found)
@@ -79,21 +67,143 @@ const buttonSubmit = (event) => {
     const rightSide =  document.getElementById('right-side');
     const divSide:any =  document.getElementById('div-right');
 
-
-    console.log(randomString + ' form-div')
     console.log(valueClick)
+    let randomStringNew = randomString + ' form-div'
+    console.log(randomStringNew)
     const test= event.target;
     console.log(test)
-    if(randomString + ' form-div' !== valueClick) {
+    if(randomStringNew !== valueClick) {
         rightSide?.appendChild(found);
     }
     else {
         // divSide?.appendChild(event.target.elements[0])
         divSide.innerHTML = `<div>${test}</div>`;
-document.body.appendChild(divSide);
+        document.body.appendChild(divSide);
     }
-    
 
+
+// Check who win - Game rules
+function game(valueClick) {
+
+    let middleSide = document.getElementById('middle-side') 
+    //draw case
+    if(randomStringNew === valueClick){
+        setTimeout(() => {
+            const draw = document.getElementById('result-status');
+            draw.innerHTML = 'Draw';
+            middleSide.style.display = "flex";
+        }, 2000) 
+        return "it is a draw"
+
+    //lose case
+    } else if (randomStringNew === "rock3 form-div" && valueClick === "scissors2 form-div"){
+        setTimeout(() => {
+            const lose = document.getElementById('result-status');
+            lose.innerHTML = 'YOU LOSE';
+            middleSide.style.display = "flex";
+        }, 2000) 
+
+        return "you lose"
+    } else if (randomStringNew === "scissors2 form-div" && valueClick === "paper1 form-div"){
+        setTimeout(() => {
+            const lose = document.getElementById('result-status');
+            lose.innerHTML = 'YOU LOSE';
+            middleSide.style.display = "flex";
+        }, 2000) 
+        return "you lose"
+    } else if (randomStringNew === "paper1 form-div" && valueClick === "rock3 form-div"){
+        setTimeout(() => {
+            const lose = document.getElementById('result-status');
+            lose.innerHTML = 'YOU LOSE';
+            middleSide.style.display = "flex";
+        }, 2000) 
+        return "you lose"
+
+    //win case
+    } else if (randomStringNew === "rock3 form-div" && valueClick === "paper1 form-div"){
+        setTimeout(() => {
+            const win = document.getElementById('result-status');
+            win.innerHTML = 'YOU WIN';
+            middleSide.style.display = "flex";
+        }, 2000)
+        return "you win"
+    } else if (randomStringNew === "paper1 form-div" && valueClick === "scissors2 form-div") {
+        setTimeout(() => {
+            const win = document.getElementById('result-status');
+            win.innerHTML = 'YOU WIN';
+            middleSide.style.display = "flex";
+        }, 2000)
+        return "you win"
+        } else (randomStringNew === "scissors2 form-div" && valueClick === "rock3 form-div") {
+        setTimeout(() => {
+            const win = document.getElementById('result-status');
+            win.innerHTML = 'YOU WIN';
+            middleSide.style.display = "flex";
+        }, 2000) 
+        return "you win"
+    }
+}
+    const score = document.getElementById('num-score');
+    score: number = 0;
+    score?.innerHTML = 0
+    let returnValue:any = game(valueClick);
+    if (returnValue === "you win") {
+    score += 1;
+    } else if (returnValue === "you lose") {
+    score -= 1;  
+    }
+    console.log(score)
+    
 }
 
 
+
+//option 2
+// let middleSide = document.getElementById('middle-side') 
+// let score: number = 0;
+// const results = {
+//   draw: {
+//     message: 'Draw',
+//     action: () => {
+//       setTimeout(() => {
+//         const draw = document.getElementById('result-status');
+//         draw.innerHTML = 'Draw';
+//         middleSide.style.display = "flex";
+//       }, 2000) 
+//       return "it is a draw";
+//     }
+//   },
+//   lose: {
+//     message: 'YOU LOSE',
+//     action: () => {
+//       setTimeout(() => {
+//         const lose = document.getElementById('result-status');
+//         lose.innerHTML = 'YOU LOSE';
+//         middleSide.style.display = "flex";
+//       }, 2000) 
+//       return "you lose";
+//     }
+//   },
+//   win: {
+//     message: 'YOU WIN',
+//     action: () => {
+//       setTimeout(() => {
+//         const win = document.getElementById('result-status');
+//         win.innerHTML = 'YOU WIN';
+//         middleSide.style.display = "flex";
+//         score += 1;
+//       }, 2000) 
+//       return "you win";
+//     }
+//   }
+// };
+
+// if (randomStringNew === valueClick) {
+//   return results.draw.action();
+// } else if ((randomStringNew === "rock3 form-div" && valueClick === "scissors2 form-div") ||
+//            (randomStringNew === "scissors2 form-div" && valueClick === "paper1 form-div") ||
+//            (randomStringNew === "paper1 form-div" && valueClick === "rock3 form-div")) {
+//   return results.lose.action();
+// } else {
+//   return results.win.action();
+// }
